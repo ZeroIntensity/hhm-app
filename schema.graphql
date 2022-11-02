@@ -1,0 +1,72 @@
+type Choice {
+  users: [User!]
+  content: String!
+  id: Int!
+  percent: Float!
+}
+
+type Comment {
+  author: User
+  content: String!
+  id: Int!
+  createdAt: Float!
+}
+
+type Dislike {
+  id: Int!
+  selected: Boolean!
+}
+
+type Like {
+  id: Int!
+  selected: Boolean!
+}
+
+input LoginCredentials {
+  name: String!
+  password: String!
+}
+
+type Mutation {
+  createAccount(credentials: LoginCredentials!): User!
+  lookup(id: Int!): User
+  login(credentials: LoginCredentials!): String!
+  logout: String!
+  createPoll(poll: PollInput!): Poll!
+  createComment(pollId: Int!, comment: String!): Comment!
+  deleteComment(commentId: Int!): Comment!
+  toggleLike(pollId: Int!): Like!
+  toggleDislike(pollId: Int!): Dislike!
+  pollVote(choiceId: Int!): Choice!
+}
+
+type Poll {
+  name: String!
+  likes: [Like!]
+  dislikes: [Dislike!]
+  comments: [Comment!]
+  choices: [Choice!]
+  id: Int!
+  creator: User
+}
+
+input PollInput {
+  name: String!
+  choices: [String!]!
+}
+
+type Query {
+  polls: [Poll!]!
+  isLogged: Boolean!
+  currentUser: User
+  comments(pollId: Int!): [Comment!]!
+  poll(pollId: Int!): Poll!
+}
+
+type User {
+  name: String!
+  polls: [Poll!]
+  likes: [Like!]
+  dislikes: [Dislike!]
+  id: String!
+}
