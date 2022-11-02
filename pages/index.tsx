@@ -33,10 +33,7 @@ const Home: NextPage = () => (
                         </a>
                     </Link>
                     <Link href="/polls">
-                        <a
-                            href="/polls"
-                            className="hover:shadow-md hover:bg-zinc-200 active:bg-zinc-300 bg-zinc-100 hover:scale-110 drop-shadow-sm font-bold rounded-full px-5 p-3 hover:border-zinc-300 transition-all text-xl"
-                        >
+                        <a className="hover:shadow-md hover:bg-zinc-200 active:bg-zinc-300 bg-zinc-100 hover:scale-110 drop-shadow-sm font-bold rounded-full px-5 p-3 hover:border-zinc-300 transition-all text-xl">
                             Try It
                         </a>
                     </Link>
